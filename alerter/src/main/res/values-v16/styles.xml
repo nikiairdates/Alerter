@@ -6,6 +6,6 @@
     </style>
 
     <style name="LinearProgress" parent="Theme.AppCompat.Light">
-        <item name="colorAccent">@color/alerter_default_success_background</item>
+        <item name="colorAccent">@android:color/white</item>
     </style>
 </resources>

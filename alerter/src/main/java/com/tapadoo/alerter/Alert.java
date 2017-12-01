@@ -3,6 +3,7 @@ package com.tapadoo.alerter;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.LightingColorFilter;
 import android.graphics.Typeface;
@@ -13,6 +14,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.annotation.StringRes;
 import android.support.annotation.StyleRes;
 import android.support.v4.content.ContextCompat;
@@ -629,6 +631,11 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
      */
     public void setProgressColorInt(@ColorInt final int color) {
         pbProgress.getProgressDrawable().setColorFilter(new LightingColorFilter(MUL, color));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void setProgressIntermediateColor(@ColorInt final int color) {
+        pbProgress.setIndeterminateTintList(ColorStateList.valueOf(color));
     }
 
     public void setProgressBarIntermediate(Boolean bol){
