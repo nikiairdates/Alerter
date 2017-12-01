@@ -24,11 +24,7 @@ import com.tapadoo.android.R;
 import java.lang.ref.WeakReference;
 
 /**
- * Alert helper class. Will attach a temporary layout to the current activity's content, on top of
- * all other views. It should appear under the status bar.
- *
- * @author Kevin Murphy
- * @since 03/11/2015.
+ * The type Alerter.
  */
 public final class Alerter {
 
@@ -36,18 +32,15 @@ public final class Alerter {
 
     private Alert alert;
 
-    /**
-     * Constructor
-     */
     private Alerter() {
         //Utility classes should not be instantiated
     }
 
     /**
-     * Creates the Alert, and maintains a reference to the calling Activity
+     * Create alerter.
      *
-     * @param activity The calling Activity
-     * @return This Alerter
+     * @param activity the activity
+     * @return the alerter
      */
     public static Alerter create(@NonNull final Activity activity) {
         if (activity == null) {
@@ -66,9 +59,9 @@ public final class Alerter {
     }
 
     /**
-     * Cleans up the currently showing alert view, if one is present
+     * Clear current.
      *
-     * @param activity The current Activity
+     * @param activity the activity
      */
     public static void clearCurrent(@NonNull final Activity activity) {
         if (activity == null) {
@@ -92,7 +85,7 @@ public final class Alerter {
     }
 
     /**
-     * Hides the currently showing alert view, if one is present
+     * Hide.
      */
     public static void hide() {
         if (activityWeakReference != null && activityWeakReference.get() != null) {
@@ -115,9 +108,9 @@ public final class Alerter {
     }
 
     /**
-     * Check if an Alert is currently showing
+     * Is showing boolean.
      *
-     * @return True if an Alert is showing, false otherwise
+     * @return the boolean
      */
     public static boolean isShowing() {
         boolean isShowing = false;
@@ -129,9 +122,9 @@ public final class Alerter {
     }
 
     /**
-     * Shows the Alert, after it's built
+     * Show alert.
      *
-     * @return An Alert object check can be altered or hidden
+     * @return the alert
      */
     public Alert show() {
         //This will get the Activity Window's DecorView
@@ -152,10 +145,10 @@ public final class Alerter {
     }
 
     /**
-     * Sets the title of the Alert
+     * Sets title.
      *
-     * @param titleId Title String Resource
-     * @return This Alerter
+     * @param titleId the title id
+     * @return the title
      */
     public Alerter setTitle(@StringRes final int titleId) {
         if (getAlert() != null) {
@@ -166,10 +159,10 @@ public final class Alerter {
     }
 
     /**
-     * Set Title of the Alert
+     * Sets title.
      *
-     * @param title Title as a String
-     * @return This Alerter
+     * @param title the title
+     * @return the title
      */
     public Alerter setTitle(final String title) {
         if (getAlert() != null) {
@@ -180,10 +173,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Title's Typeface
+     * Sets title typeface.
      *
-     * @param typeface Typeface to use
-     * @return This Alerter
+     * @param typeface the typeface
+     * @return the title typeface
      */
     public Alerter setTitleTypeface(@NonNull final Typeface typeface) {
         if (getAlert() != null) {
@@ -194,10 +187,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Title's text appearance
+     * Sets title appearance.
      *
-     * @param textAppearance The style resource id
-     * @return This Alerter
+     * @param textAppearance the text appearance
+     * @return the title appearance
      */
     public Alerter setTitleAppearance(@StyleRes final int textAppearance) {
         if (getAlert() != null) {
@@ -208,10 +201,10 @@ public final class Alerter {
     }
 
     /**
-     * Set Gravity of the Alert
+     * Sets content gravity.
      *
-     * @param gravity Gravity of Alert
-     * @return This Alerter
+     * @param gravity the gravity
+     * @return the content gravity
      */
     public Alerter setContentGravity(final int gravity) {
         if (getAlert() != null) {
@@ -221,6 +214,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets bar height.
+     *
+     * @param barHeight the bar height
+     * @return the bar height
+     */
     public Alerter setBarHeight(final int barHeight) {
         if (getAlert() != null) {
             getAlert().setBarHeight(barHeight);
@@ -229,6 +228,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets bar width.
+     *
+     * @param barWidth the bar width
+     * @return the bar width
+     */
     public Alerter setBarWidth(final int barWidth) {
         if (getAlert() != null) {
             getAlert().setBarWidth(barWidth);
@@ -237,6 +242,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets bar margin.
+     *
+     * @param barMargin the bar margin
+     * @return the bar margin
+     */
     public Alerter setBarMargin(final int barMargin) {
         if (getAlert() != null) {
             getAlert().setBarMargin(barMargin);
@@ -246,10 +257,10 @@ public final class Alerter {
     }
 
     /**
-     * Sets the Alert Text
+     * Sets text.
      *
-     * @param textId Text String Resource
-     * @return This Alerter
+     * @param textId the text id
+     * @return the text
      */
     public Alerter setText(@StringRes final int textId) {
         if (getAlert() != null) {
@@ -260,10 +271,10 @@ public final class Alerter {
     }
 
     /**
-     * Sets the Alert Text
+     * Sets text.
      *
-     * @param text String of Alert Text
-     * @return This Alerter
+     * @param text the text
+     * @return the text
      */
     public Alerter setText(final String text) {
         if (getAlert() != null) {
@@ -274,10 +285,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Text's Typeface
+     * Sets text typeface.
      *
-     * @param typeface Typeface to use
-     * @return This Alerter
+     * @param typeface the typeface
+     * @return the text typeface
      */
     public Alerter setTextTypeface(@NonNull final Typeface typeface) {
         if (getAlert() != null) {
@@ -288,10 +299,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Text's text appearance
+     * Sets text appearance.
      *
-     * @param textAppearance The style resource id
-     * @return This Alerter
+     * @param textAppearance the text appearance
+     * @return the text appearance
      */
     public Alerter setTextAppearance(@StyleRes final int textAppearance) {
         if (getAlert() != null) {
@@ -302,10 +313,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Background Colour
+     * Sets background color int.
      *
-     * @param colorInt Colour int value
-     * @return This Alerter
+     * @param colorInt the color int
+     * @return the background color int
      */
     public Alerter setBackgroundColorInt(@ColorInt final int colorInt) {
         if (getAlert() != null) {
@@ -315,6 +326,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets progress background color intermediate.
+     *
+     * @param colorInt the color int
+     * @return the progress background color intermediate
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public Alerter setProgressBackgroundColorIntermediate(@ColorInt final int colorInt) {
         if (getAlert() != null) {
@@ -324,6 +341,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets progress background color tint.
+     *
+     * @param colorInt the color int
+     * @return the progress background color tint
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public Alerter setProgressBackgroundColorTint(@ColorInt final int colorInt) {
         if (getAlert() != null) {
@@ -334,10 +357,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Background Colour
+     * Sets background color res.
      *
-     * @param colorResId Colour Resource Id
-     * @return This Alerter
+     * @param colorResId the color res id
+     * @return the background color res
      */
     public Alerter setBackgroundColorRes(@ColorRes final int colorResId) {
         if (getAlert() != null && getActivityWeakReference() != null) {
@@ -348,10 +371,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Background Drawable
+     * Sets background drawable.
      *
-     * @param drawable Drawable
-     * @return This Alerter
+     * @param drawable the drawable
+     * @return the background drawable
      */
     public Alerter setBackgroundDrawable(final Drawable drawable) {
         if (getAlert() != null) {
@@ -362,10 +385,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Background Drawable Resource
+     * Sets background resource.
      *
-     * @param drawableResId Drawable Resource Id
-     * @return This Alerter
+     * @param drawableResId the drawable res id
+     * @return the background resource
      */
     public Alerter setBackgroundResource(@DrawableRes final int drawableResId) {
         if (getAlert() != null) {
@@ -376,10 +399,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Icon
+     * Sets icon.
      *
-     * @param iconId The Drawable's Resource Idw
-     * @return This Alerter
+     * @param iconId the icon id
+     * @return the icon
      */
     public Alerter setIcon(@DrawableRes final int iconId) {
         if (getAlert() != null) {
@@ -390,10 +413,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Icon
+     * Sets icon.
      *
-     * @param bitmap The Bitmap object to use for the icon.
-     * @return This Alerter
+     * @param bitmap the bitmap
+     * @return the icon
      */
     public Alerter setIcon(@NonNull final Bitmap bitmap) {
         if (getAlert() != null) {
@@ -404,10 +427,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Icon
+     * Sets second icon.
      *
-     * @param drawable The Drawable to use for the icon.
-     * @return This Alerter
+     * @param drawable the drawable
+     * @return the second icon
      */
     public Alerter setSecondIcon(@NonNull final Drawable drawable) {
         if (getAlert() != null) {
@@ -417,6 +440,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Sets second icon.
+     *
+     * @param iconId the icon id
+     * @return the second icon
+     */
     public Alerter setSecondIcon(@DrawableRes final int iconId) {
         if (getAlert() != null) {
             getAlert().setSecondIcon(iconId);
@@ -426,10 +455,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Icon
+     * Sets second icon.
      *
-     * @param bitmap The Bitmap object to use for the icon.
-     * @return This Alerter
+     * @param bitmap the bitmap
+     * @return the second icon
      */
     public Alerter setSecondIcon(@NonNull final Bitmap bitmap) {
         if (getAlert() != null) {
@@ -440,10 +469,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Alert's Icon
+     * Sets icon.
      *
-     * @param drawable The Drawable to use for the icon.
-     * @return This Alerter
+     * @param drawable the drawable
+     * @return the icon
      */
     public Alerter setIcon(@NonNull final Drawable drawable) {
         if (getAlert() != null) {
@@ -454,9 +483,9 @@ public final class Alerter {
     }
 
     /**
-     * Hide the Icon
+     * Hide icon alerter.
      *
-     * @return This Alerter
+     * @return the alerter
      */
     public Alerter hideIcon() {
         if (getAlert() != null) {
@@ -467,9 +496,9 @@ public final class Alerter {
     }
 
     /**
-     * Hide the Icon
+     * Hide second icon alerter.
      *
-     * @return This Alerter
+     * @return the alerter
      */
     public Alerter hideSecondIcon() {
         if (getAlert() != null) {
@@ -480,10 +509,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the onClickListener for the Alert
+     * Sets on click listener.
      *
-     * @param onClickListener The onClickListener for the Alert
-     * @return This Alerter
+     * @param onClickListener the on click listener
+     * @return the on click listener
      */
     public Alerter setOnClickListener(@NonNull final View.OnClickListener onClickListener) {
         if (getAlert() != null) {
@@ -494,10 +523,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the on screen duration of the alert
+     * Sets duration.
      *
-     * @param milliseconds The duration in milliseconds
-     * @return This Alerter
+     * @param milliseconds the milliseconds
+     * @return the duration
      */
     public Alerter setDuration(@NonNull final long milliseconds) {
         if (getAlert() != null) {
@@ -507,10 +536,10 @@ public final class Alerter {
     }
 
     /**
-     * Enable or Disable Icon Pulse Animations
+     * Enable icon pulse alerter.
      *
-     * @param pulse True if the icon should pulse
-     * @return This Alerter
+     * @param pulse the pulse
+     * @return the alerter
      */
     public Alerter enableIconPulse(final boolean pulse) {
         if (getAlert() != null) {
@@ -520,10 +549,10 @@ public final class Alerter {
     }
 
     /**
-     * Set whether to show the icon in the alert or not
+     * Show icon alerter.
      *
-     * @param showIcon True to show the icon, false otherwise
-     * @return This Alerter
+     * @param showIcon the show icon
+     * @return the alerter
      */
     public Alerter showIcon(final boolean showIcon) {
         if (getAlert() != null) {
@@ -532,6 +561,25 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Show progress bar alerter.
+     *
+     * @param showIcon the show icon
+     * @return the alerter
+     */
+    public Alerter showProgressBar(final boolean showIcon) {
+        if (getAlert() != null) {
+            getAlert().setProgressBarEnabled(showIcon);
+        }
+        return this;
+    }
+
+    /**
+     * Show second icon alerter.
+     *
+     * @param showIcon the show icon
+     * @return the alerter
+     */
     public Alerter showSecondIcon(final boolean showIcon) {
         if (getAlert() != null) {
             getAlert().showSecondIcon(showIcon);
@@ -540,10 +588,10 @@ public final class Alerter {
     }
 
     /**
-     * Enable or disable infinite duration of the alert
+     * Enable infinite duration alerter.
      *
-     * @param infiniteDuration True if the duration of the alert is infinite
-     * @return This Alerter
+     * @param infiniteDuration the infinite duration
+     * @return the alerter
      */
     public Alerter enableInfiniteDuration(final boolean infiniteDuration) {
         if (getAlert() != null) {
@@ -553,10 +601,10 @@ public final class Alerter {
     }
 
     /**
-     * Sets the Alert Shown Listener
+     * Sets on show listener.
      *
-     * @param listener OnShowAlertListener of Alert
-     * @return This Alerter
+     * @param listener the listener
+     * @return the on show listener
      */
     public Alerter setOnShowListener(@NonNull final OnShowAlertListener listener) {
         if (getAlert() != null) {
@@ -566,10 +614,10 @@ public final class Alerter {
     }
 
     /**
-     * Sets the Alert Hidden Listener
+     * Sets on hide listener.
      *
-     * @param listener OnHideAlertListener of Alert
-     * @return This Alerter
+     * @param listener the listener
+     * @return the on hide listener
      */
     public Alerter setOnHideListener(@NonNull final OnHideAlertListener listener) {
         if (getAlert() != null) {
@@ -579,9 +627,9 @@ public final class Alerter {
     }
 
     /**
-     * Enables swipe to dismiss
+     * Enable swipe to dismiss alerter.
      *
-     * @return This Alerter
+     * @return the alerter
      */
     public Alerter enableSwipeToDismiss() {
         if (getAlert() != null) {
@@ -591,10 +639,10 @@ public final class Alerter {
     }
 
     /**
-     * Enable or Disable Vibration
+     * Enable vibration alerter.
      *
-     * @param enable True to enable, False to disable
-     * @return This Alerter
+     * @param enable the enable
+     * @return the alerter
      */
     public Alerter enableVibration(final boolean enable) {
         if (getAlert() != null) {
@@ -605,9 +653,9 @@ public final class Alerter {
     }
 
     /**
-     * Disable touch events outside of the Alert
+     * Disable outside touch alerter.
      *
-     * @return This Alerter
+     * @return the alerter
      */
     public Alerter disableOutsideTouch() {
         if (getAlert() != null) {
@@ -618,10 +666,10 @@ public final class Alerter {
     }
 
     /**
-     * Enable or disable progress bar
+     * Enable progress alerter.
      *
-     * @param enable True to enable, False to disable
-     * @return This Alerter
+     * @param enable the enable
+     * @return the alerter
      */
     public Alerter enableProgress(final boolean enable) {
         if (getAlert() != null) {
@@ -631,6 +679,12 @@ public final class Alerter {
         return this;
     }
 
+    /**
+     * Show progress bar intermediate alerter.
+     *
+     * @param enable the enable
+     * @return the alerter
+     */
     public Alerter showProgressBarIntermediate(final boolean enable) {
         if (getAlert() != null) {
             getAlert().setProgressBarIntermediate(enable);
@@ -640,10 +694,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Progress bar color from a color resource
+     * Sets progress color res.
      *
-     * @param color The color resource
-     * @return This Alerter
+     * @param color the color
+     * @return the progress color res
      */
     public Alerter setProgressColorRes(@ColorRes final int color) {
         if (getAlert() != null) {
@@ -654,10 +708,10 @@ public final class Alerter {
     }
 
     /**
-     * Set the Progress bar color from a color resource
+     * Sets progress color int.
      *
-     * @param color The color resource
-     * @return This Alerter
+     * @param color the color
+     * @return the progress color int
      */
     public Alerter setProgressColorInt(@ColorInt final int color) {
         if (getAlert() != null) {
@@ -667,20 +721,10 @@ public final class Alerter {
         return this;
     }
 
-    /**
-     * Gets the Alert associated with the Alerter
-     *
-     * @return The current Alert
-     */
     private Alert getAlert() {
         return alert;
     }
 
-    /**
-     * Sets the Alert
-     *
-     * @param alert The Alert to be references and maintained
-     */
     private void setAlert(final Alert alert) {
         this.alert = alert;
     }
@@ -690,11 +734,6 @@ public final class Alerter {
         return activityWeakReference;
     }
 
-    /**
-     * Get the enclosing Decor View
-     *
-     * @return The Decor View of the Activity the Alerter was called from
-     */
     @Nullable
     private ViewGroup getActivityDecorView() {
         ViewGroup decorView = null;
@@ -706,11 +745,6 @@ public final class Alerter {
         return decorView;
     }
 
-    /**
-     * Creates a weak reference to the calling Activity
-     *
-     * @param activity The calling Activity
-     */
     private void setActivity(@NonNull final Activity activity) {
         activityWeakReference = new WeakReference<>(activity);
     }

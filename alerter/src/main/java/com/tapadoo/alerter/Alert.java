@@ -37,18 +37,12 @@ import android.widget.TextView;
 import com.tapadoo.android.R;
 
 /**
- * Custom Alert View
- *
- * @author Kevin Murphy, Tapadoo, Dublin, Ireland, Europe, Earth. BG
- * @since 26/01/2016
- **/
+ * The type Alert.
+ */
 public class Alert extends FrameLayout implements View.OnClickListener, Animation.AnimationListener, SwipeDismissTouchListener.DismissCallbacks {
 
     private static final int CLEAN_UP_DELAY_MILLIS = 100;
 
-    /**
-     * The amount of time the alert will be visible on screen in seconds
-     */
     private static final long DISPLAY_TIME_IN_SECONDS = 3000;
     private static final int MUL = 0xFF000000;
 
@@ -76,20 +70,13 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
 
     private Runnable runningAnimation;
 
-    /**
-     * Flag to ensure we only set the margins once
-     */
     private boolean marginSet;
-    /**
-     * Flag to enable / disable haptic feedback
-     */
     private boolean vibrationEnabled = true;
 
     /**
-     * This is the default view constructor. It requires a Context, and holds a reference to it.
-     * If not cleaned up properly, memory will leak.
+     * Instantiates a new Alert.
      *
-     * @param context The Activity Context
+     * @param context the context
      */
     public Alert(@NonNull final Context context) {
         super(context, null, R.attr.alertStyle);
@@ -97,11 +84,10 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * This is the default view constructor. It requires a Context, and holds a reference to it.
-     * If not cleaned up properly, memory will leak.
+     * Instantiates a new Alert.
      *
-     * @param context The Activity Context
-     * @param attrs   View Attributes
+     * @param context the context
+     * @param attrs   the attrs
      */
     public Alert(@NonNull final Context context, @Nullable final AttributeSet attrs) {
         super(context, attrs, R.attr.alertStyle);
@@ -109,12 +95,11 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * This is the default view constructor. It requires a Context, and holds a reference to it.
-     * If not cleaned up properly, memory will leak.
+     * Instantiates a new Alert.
      *
-     * @param context      The Activity Context
-     * @param attrs        View Attributes
-     * @param defStyleAttr Styles
+     * @param context      the context
+     * @param attrs        the attrs
+     * @param defStyleAttr the def style attr
      */
     public Alert(@NonNull final Context context, @Nullable final AttributeSet attrs, final int defStyleAttr) {
         super(context, attrs, defStyleAttr);
@@ -261,7 +246,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     /* Clean Up Methods */
 
     /**
-     * Cleans up the currently showing alert view.
+     * Hide.
      */
     public void hide() {
         try {
@@ -288,9 +273,6 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         }
     }
 
-    /**
-     * Removes Alert View from its Parent Layout
-     */
     private void removeFromParent() {
         postDelayed(new Runnable() {
             @Override
@@ -319,27 +301,27 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     /* Setters and Getters */
 
     /**
-     * Sets the Alert Background colour
+     * Sets alert background color.
      *
-     * @param color The qualified colour integer
+     * @param color the color
      */
     public void setAlertBackgroundColor(@ColorInt final int color) {
         flBackground.setBackgroundColor(color);
     }
 
     /**
-     * Sets the Alert Background Drawable Resource
+     * Sets alert background resource.
      *
-     * @param resource The qualified drawable integer
+     * @param resource the resource
      */
     public void setAlertBackgroundResource(@DrawableRes final int resource) {
         flBackground.setBackgroundResource(resource);
     }
 
     /**
-     * Sets the Alert Background Drawable
+     * Sets alert background drawable.
      *
-     * @param drawable The qualified drawable
+     * @param drawable the drawable
      */
     public void setAlertBackgroundDrawable(final Drawable drawable) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -350,46 +332,66 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * Sets the Title of the Alert
+     * Sets title.
      *
-     * @param titleId String resource id of the Alert title
+     * @param titleId the title id
      */
     public void setTitle(@StringRes final int titleId) {
         setTitle(getContext().getString(titleId));
     }
 
     /**
-     * Sets the Text of the Alert
+     * Sets text.
      *
-     * @param textId String resource id of the Alert text
+     * @param textId the text id
      */
     public void setText(@StringRes final int textId) {
         setText(getContext().getString(textId));
     }
 
+    /**
+     * Gets content gravity.
+     *
+     * @return the content gravity
+     */
     public int getContentGravity() {
         return ((LayoutParams) rlContainer.getLayoutParams()).gravity;
     }
 
+    /**
+     * Sets bar height.
+     *
+     * @param barHeight the bar height
+     */
     public void setBarHeight(final int barHeight) {
         ((LayoutParams) rlContainer.getLayoutParams()).height = barHeight;
         rlContainer.requestLayout();
     }
 
+    /**
+     * Sets bar width.
+     *
+     * @param barWidth the bar width
+     */
     public void setBarWidth(final int barWidth) {
         ((LayoutParams) rlContainer.getLayoutParams()).width = barWidth;
         rlContainer.requestLayout();
     }
 
+    /**
+     * Sets bar margin.
+     *
+     * @param barMargin the bar margin
+     */
     public void setBarMargin(final int barMargin) {
         ((LayoutParams) flBackground.getLayoutParams()).topMargin = barMargin;
         flBackground.requestLayout();
     }
 
     /**
-     * Sets the Gravity of the Alert
+     * Sets content gravity.
      *
-     * @param contentGravity Gravity of the Alert
+     * @param contentGravity the content gravity
      */
     public void setContentGravity(final int contentGravity) {
         ((LayoutParams) rlContainer.getLayoutParams()).gravity = contentGravity;
@@ -397,24 +399,34 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * Disable touches while the Alert is showing
+     * Disable outside touch.
      */
     public void disableOutsideTouch() {
         flClickShield.setClickable(true);
     }
 
+    /**
+     * Gets alert background.
+     *
+     * @return the alert background
+     */
     public FrameLayout getAlertBackground() {
         return flBackground;
     }
 
+    /**
+     * Gets title.
+     *
+     * @return the title
+     */
     public TextView getTitle() {
         return tvTitle;
     }
 
     /**
-     * Sets the Title of the Alert
+     * Sets title.
      *
-     * @param title String object to be used as the Alert title
+     * @param title the title
      */
     public void setTitle(@NonNull final String title) {
         if (!TextUtils.isEmpty(title)) {
@@ -424,9 +436,9 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * Set the Title's text appearance of the Title
+     * Sets title appearance.
      *
-     * @param textAppearance The style resource id
+     * @param textAppearance the text appearance
      */
     public void setTitleAppearance(@StyleRes final int textAppearance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -437,31 +449,36 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * Set the Title's typeface
+     * Sets title typeface.
      *
-     * @param typeface The typeface to use
+     * @param typeface the typeface
      */
     public void setTitleTypeface(@NonNull final Typeface typeface) {
         tvTitle.setTypeface(typeface);
     }
 
     /**
-     * Set the Text's typeface
+     * Sets text typeface.
      *
-     * @param typeface The typeface to use
+     * @param typeface the typeface
      */
     public void setTextTypeface(@NonNull final Typeface typeface) {
         tvText.setTypeface(typeface);
     }
 
+    /**
+     * Gets text.
+     *
+     * @return the text
+     */
     public TextView getText() {
         return tvText;
     }
 
     /**
-     * Sets the Text of the Alert
+     * Sets text.
      *
-     * @param text String resource id of the Alert text
+     * @param text the text
      */
     public void setText(final String text) {
         if (!TextUtils.isEmpty(text)) {
@@ -471,9 +488,9 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
-     * Set the Text's text appearance of the Title
+     * Sets text appearance.
      *
-     * @param textAppearance The style resource id
+     * @param textAppearance the text appearance
      */
     public void setTextAppearance(@StyleRes final int textAppearance) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -483,191 +500,230 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         }
     }
 
+    /**
+     * Gets icon.
+     *
+     * @return the icon
+     */
     public ImageView getIcon() {
         return ivIcon;
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets icon.
      *
-     * @param iconId Drawable resource id of the icon to use in the Alert
+     * @param iconId the icon id
      */
     public void setIcon(@DrawableRes final int iconId) {
         ivIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), iconId));
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets icon.
      *
-     * @param bitmap Bitmap image of the icon to use in the Alert.
+     * @param bitmap the bitmap
      */
     public void setIcon(@NonNull final Bitmap bitmap) {
         ivIcon.setImageBitmap(bitmap);
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets icon.
      *
-     * @param drawable Drawable image of the icon to use in the Alert.
+     * @param drawable the drawable
      */
     public void setIcon(@NonNull final Drawable drawable) {
         ivIcon.setImageDrawable(drawable);
     }
 
     /**
-     * Set whether to show the icon in the alert or not
+     * Show icon.
      *
-     * @param showIcon True to show the icon, false otherwise
+     * @param showIcon the show icon
      */
     public void showIcon(final boolean showIcon) {
         ivIcon.setVisibility(showIcon ? View.VISIBLE : View.GONE);
     }
 
     /**
-     * Set whether to enable swipe to dismiss or not
+     * Enable swipe to dismiss.
      */
     public void enableSwipeToDismiss() {
         flBackground.setOnTouchListener(new SwipeDismissTouchListener(flBackground, null, this));
     }
 
+    /**
+     * Gets second icon.
+     *
+     * @return the second icon
+     */
     public ImageView getSecondIcon() {
         return lvIcon;
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets second icon.
      *
-     * @param iconId Drawable resource id of the icon to use in the Alert
+     * @param iconId the icon id
      */
     public void setSecondIcon(@DrawableRes final int iconId) {
         lvIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), iconId));
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets second icon.
      *
-     * @param bitmap Bitmap image of the icon to use in the Alert.
+     * @param bitmap the bitmap
      */
     public void setSecondIcon(@NonNull final Bitmap bitmap) {
         lvIcon.setImageBitmap(bitmap);
     }
 
     /**
-     * Set the inline icon for the Alert
+     * Sets second icon.
      *
-     * @param drawable Drawable image of the icon to use in the Alert.
+     * @param drawable the drawable
      */
     public void setSecondIcon(@NonNull final Drawable drawable) {
         lvIcon.setImageDrawable(drawable);
     }
 
     /**
-     * Set whether to show the icon in the alert or not
+     * Show second icon.
      *
-     * @param showIcon True to show the icon, false otherwise
+     * @param showIcon the show icon
      */
     public void showSecondIcon(final boolean showIcon) {
         lvIcon.setVisibility(showIcon ? View.VISIBLE : View.GONE);
     }
 
     /**
-     * Get the Alert's on screen duration
+     * Gets duration.
      *
-     * @return The given duration, defaulting to 3000 milliseconds
+     * @return the duration
      */
     public long getDuration() {
         return duration;
     }
 
     /**
-     * Set the alert's on screen duation
+     * Sets duration.
      *
-     * @param duration The duration of alert on screen
+     * @param duration the duration
      */
     public void setDuration(final long duration) {
         this.duration = duration;
     }
 
     /**
-     * Set if the Icon should pulse or not
+     * Pulse icon.
      *
-     * @param shouldPulse True if the icon should be animated
+     * @param shouldPulse the should pulse
      */
     public void pulseIcon(final boolean shouldPulse) {
         this.enableIconPulse = shouldPulse;
     }
 
     /**
-     * Set if the duration of the alert is infinite
+     * Sets enable infinite duration.
      *
-     * @param enableInfiniteDuration True if the duration of the alert is infinite
+     * @param enableInfiniteDuration the enable infinite duration
      */
     public void setEnableInfiniteDuration(final boolean enableInfiniteDuration) {
         this.enableInfiniteDuration = enableInfiniteDuration;
     }
 
     /**
-     * Enable or disable progress bar
+     * Sets enable progress.
      *
-     * @param enableProgress True to enable, False to disable
+     * @param enableProgress the enable progress
      */
     public void setEnableProgress(final boolean enableProgress) {
         this.enableProgress = enableProgress;
     }
 
     /**
-     * Set the Progress bar color from a color resource
+     * Sets progress color res.
      *
-     * @param color The color resource
+     * @param color the color
      */
     public void setProgressColorRes(@ColorRes final int color) {
         pbProgress.getProgressDrawable().setColorFilter(new LightingColorFilter(MUL, ContextCompat.getColor(getContext(), color)));
     }
 
     /**
-     * Set the Progress bar color from a color resource
+     * Sets progress color int.
      *
-     * @param color The color resource
+     * @param color the color
      */
     public void setProgressColorInt(@ColorInt final int color) {
         pbProgress.getProgressDrawable().setColorFilter(new LightingColorFilter(MUL, color));
     }
 
+    /**
+     * Sets progress intermediate color.
+     *
+     * @param color the color
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setProgressIntermediateColor(@ColorInt final int color) {
         pbProgress.setIndeterminateTintList(ColorStateList.valueOf(color));
     }
 
+    /**
+     * Sets progress background tint color.
+     *
+     * @param color the color
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void setProgressBackgroundTintColor(@ColorInt final int color) {
         pbProgress.setBackgroundTintList(ColorStateList.valueOf(color));
     }
 
+    /**
+     * Set progress bar intermediate.
+     *
+     * @param bol the bol
+     */
     public void setProgressBarIntermediate(Boolean bol){
         pbProgress.setIndeterminate(bol);
     }
+
     /**
-     * Set the alert's listener to be fired on the alert being fully shown
+     * Set progress bar enabled.
      *
-     * @param listener Listener to be fired
+     * @param bol the bol
+     */
+    public void setProgressBarEnabled(Boolean bol){
+        if (bol) {
+            pbProgress.setVisibility(GONE);
+        } else {
+            pbProgress.setVisibility(VISIBLE);
+        }
+    }
+
+    /**
+     * Sets on show listener.
+     *
+     * @param listener the listener
      */
     public void setOnShowListener(@NonNull final OnShowAlertListener listener) {
         this.onShowListener = listener;
     }
 
     /**
-     * Set the alert's listener to be fired on the alert being fully hidden
+     * Sets on hide listener.
      *
-     * @param listener Listener to be fired
+     * @param listener the listener
      */
     public void setOnHideListener(@NonNull final OnHideAlertListener listener) {
         this.onHideListener = listener;
     }
 
     /**
-     * Enable or Disable haptic feedback
+     * Sets vibration enabled.
      *
-     * @param vibrationEnabled True to enable, false to disable
+     * @param vibrationEnabled the vibration enabled
      */
     public void setVibrationEnabled(final boolean vibrationEnabled) {
         this.vibrationEnabled = vibrationEnabled;
