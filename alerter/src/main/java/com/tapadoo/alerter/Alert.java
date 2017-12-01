@@ -696,9 +696,9 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
      */
     public void setProgressBarEnabled(Boolean bol){
         if (bol) {
-            pbProgress.setVisibility(GONE);
-        } else {
             pbProgress.setVisibility(VISIBLE);
+        } else {
+            pbProgress.setVisibility(GONE);
         }
     }
 
