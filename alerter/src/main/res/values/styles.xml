@@ -29,4 +29,8 @@
         <item name="android:textSize">@dimen/alerter_text_small</item>
     </style>
 
+    <style name="LinearProgress" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/alerter_default_success_background</item>
+    </style>
+
 </resources>

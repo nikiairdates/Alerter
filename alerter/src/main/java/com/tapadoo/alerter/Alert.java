@@ -380,8 +380,8 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     public void setBarMargin(final int barMargin) {
-        ((LayoutParams) rlContainer.getLayoutParams()).topMargin = barMargin;
-        rlContainer.requestLayout();
+        ((LayoutParams) flBackground.getLayoutParams()).topMargin = barMargin;
+        flBackground.requestLayout();
     }
 
     /**
