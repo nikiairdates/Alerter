@@ -37,7 +37,7 @@ import com.tapadoo.android.R;
 /**
  * Custom Alert View
  *
- * @author Kevin Murphy, Tapadoo, Dublin, Ireland, Europe, Earth.
+ * @author Kevin Murphy, Tapadoo, Dublin, Ireland, Europe, Earth. BG
  * @since 26/01/2016
  **/
 public class Alert extends FrameLayout implements View.OnClickListener, Animation.AnimationListener, SwipeDismissTouchListener.DismissCallbacks {
