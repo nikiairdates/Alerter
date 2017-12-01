@@ -77,6 +77,18 @@
 
             </LinearLayout>
 
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/lvIcon"
+                android:layout_width="@dimen/alerter_alert_icn_size"
+                android:layout_height="@dimen/alerter_alert_icn_size"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:maxHeight="@dimen/alerter_alert_icn_size"
+                android:maxWidth="@dimen/alerter_alert_icn_size"
+                android:src="@drawable/alerter_ic_notifications"
+                android:tint="@color/alert_default_icon_color" />
+
         </RelativeLayout>
 
         <ProgressBar

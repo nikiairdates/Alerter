@@ -56,6 +56,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     private TextView tvTitle;
     private TextView tvText;
     private ImageView ivIcon;
+    private ImageView lvIcon;
     private ViewGroup rlContainer;
     private ProgressBar pbProgress;
 
@@ -125,6 +126,7 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         flBackground = (FrameLayout) findViewById(R.id.flAlertBackground);
         flClickShield = (FrameLayout) findViewById(R.id.flClickShield);
         ivIcon = (ImageView) findViewById(R.id.ivIcon);
+        lvIcon = (ImageView) findViewById(R.id.lvIcon);
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvText = (TextView) findViewById(R.id.tvText);
         rlContainer = (ViewGroup) findViewById(R.id.rlContainer);
@@ -511,6 +513,46 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         flBackground.setOnTouchListener(new SwipeDismissTouchListener(flBackground, null, this));
     }
 
+    public ImageView getSecondIcon() {
+        return lvIcon;
+    }
+
+    /**
+     * Set the inline icon for the Alert
+     *
+     * @param iconId Drawable resource id of the icon to use in the Alert
+     */
+    public void setSecondIcon(@DrawableRes final int iconId) {
+        lvIcon.setImageDrawable(AppCompatResources.getDrawable(getContext(), iconId));
+    }
+
+    /**
+     * Set the inline icon for the Alert
+     *
+     * @param bitmap Bitmap image of the icon to use in the Alert.
+     */
+    public void setSecondIcon(@NonNull final Bitmap bitmap) {
+        lvIcon.setImageBitmap(bitmap);
+    }
+
+    /**
+     * Set the inline icon for the Alert
+     *
+     * @param drawable Drawable image of the icon to use in the Alert.
+     */
+    public void setSecondIcon(@NonNull final Drawable drawable) {
+        lvIcon.setImageDrawable(drawable);
+    }
+
+    /**
+     * Set whether to show the icon in the alert or not
+     *
+     * @param showIcon True to show the icon, false otherwise
+     */
+    public void showSecondIcon(final boolean showIcon) {
+        lvIcon.setVisibility(showIcon ? View.VISIBLE : View.GONE);
+    }
+
     /**
      * Get the Alert's on screen duration
      *
@@ -574,6 +616,9 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         pbProgress.getProgressDrawable().setColorFilter(new LightingColorFilter(MUL, color));
     }
 
+    public void setProgressBarIntermediate(Boolean bol){
+        pbProgress.setIndeterminate(bol);
+    }
     /**
      * Set the alert's listener to be fired on the alert being fully shown
      *

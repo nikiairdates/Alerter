@@ -1,5 +1,4 @@
 //noinspection GrPackage
-apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'pmd'
 
@@ -18,26 +17,6 @@ android {
         htmlOutput file("$project.buildDir/reports/lint/lint-result.html")
         xmlOutput  file("$project.buildDir/reports/lint/lint-result.xml")
     }
-}
-
-checkstyle {
-    toolVersion = '7.5'
-}
-
-/*
- * Check Styles - is a development tool to help programmers write Java code that adheres to a coding standard.
- */
-task checkstyle(type: Checkstyle) {
-    configFile = file("${rootProject.rootDir}/${QUALITY_DIR}/checkstyle/checkstyle.xml")
-
-    def suppressionsFile = new File("${project.rootDir}/${QUALITY_DIR}/checkstyle/suppressions.xml")
-
-    configProperties.checkstyleSuppressionsPath = suppressionsFile.absolutePath
-
-    source SOURCE
-    include INCLUDE_JAVA
-    exclude EXCLUDE_GENERATED
-    classpath = files()
 }
 
 /*
@@ -92,7 +71,5 @@ task pmd(type: Pmd) {
         }
     }
 }
-
-preBuild.dependsOn('checkstyle')
 
 check.dependsOn 'findbugs', 'pmd', 'lint'
