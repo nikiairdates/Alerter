@@ -310,6 +310,24 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
     }
 
     /**
+     * Sets iv icon color.
+     *
+     * @param color the color
+     */
+    public void setIvIconColor(@ColorInt final int color) {
+        ivIcon.setColorFilter(color);
+    }
+
+    /**
+     * Sets lv icon color.
+     *
+     * @param color the color
+     */
+    public void setLvIconColor(@ColorInt final int color) {
+        lvIcon.setColorFilter(color);
+    }
+
+    /**
      * Sets alert background resource.
      *
      * @param resource the resource

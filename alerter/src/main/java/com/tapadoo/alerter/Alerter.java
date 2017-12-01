@@ -327,6 +327,34 @@ public final class Alerter {
     }
 
     /**
+     * Sets second icon color.
+     *
+     * @param colorInt the color int
+     * @return the second icon color
+     */
+    public Alerter setSecondIconColor(@ColorInt final int colorInt) {
+        if (getAlert() != null) {
+            getAlert().setLvIconColor(colorInt);
+        }
+
+        return this;
+    }
+
+    /**
+     * Sets first icon color.
+     *
+     * @param colorInt the color int
+     * @return the first icon color
+     */
+    public Alerter setFirstIconColor(@ColorInt final int colorInt) {
+        if (getAlert() != null) {
+            getAlert().setIvIconColor(colorInt);
+        }
+
+        return this;
+    }
+
+    /**
      * Sets progress background color intermediate.
      *
      * @param colorInt the color int
