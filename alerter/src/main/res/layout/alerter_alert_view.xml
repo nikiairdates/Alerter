@@ -13,14 +13,13 @@
         style="@style/AlertStyle"
         android:background="@android:color/darker_gray"
         android:clickable="true"
-        android:layout_marginTop="50dp"
         android:foreground="?attr/selectableItemBackground"
         tools:visibility="visible">
 
         <RelativeLayout
             android:id="@+id/rlContainer"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/alerter_padding_half"
             android:background="@null"
             android:clipChildren="false"
@@ -95,9 +94,8 @@
             android:id="@+id/pbProgress"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="5dp"
+            android:layout_height="3dp"
             android:layout_gravity="bottom"
-            android:layout_marginTop="15dp"
             android:theme="@style/LinearProgress"
             android:visibility="visible"
             tools:progress="45" />

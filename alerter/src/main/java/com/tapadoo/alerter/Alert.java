@@ -638,6 +638,11 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         pbProgress.setIndeterminateTintList(ColorStateList.valueOf(color));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void setProgressBackgroundTintColor(@ColorInt final int color) {
+        pbProgress.setBackgroundTintList(ColorStateList.valueOf(color));
+    }
+
     public void setProgressBarIntermediate(Boolean bol){
         pbProgress.setIndeterminate(bol);
     }

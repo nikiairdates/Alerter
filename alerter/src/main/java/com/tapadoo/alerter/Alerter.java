@@ -324,6 +324,15 @@ public final class Alerter {
         return this;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public Alerter setProgressBackgroundColorTint(@ColorInt final int colorInt) {
+        if (getAlert() != null) {
+            getAlert().setProgressBackgroundTintColor(colorInt);
+        }
+
+        return this;
+    }
+
     /**
      * Set the Alert's Background Colour
      *
