@@ -369,6 +369,21 @@ public class Alert extends FrameLayout implements View.OnClickListener, Animatio
         return ((LayoutParams) rlContainer.getLayoutParams()).gravity;
     }
 
+    public void setBarHeight(final int barHeight) {
+        ((LayoutParams) rlContainer.getLayoutParams()).height = barHeight;
+        rlContainer.requestLayout();
+    }
+
+    public void setBarWidth(final int barWidth) {
+        ((LayoutParams) rlContainer.getLayoutParams()).width = barWidth;
+        rlContainer.requestLayout();
+    }
+
+    public void setBarMargin(final int barMargin) {
+        ((LayoutParams) rlContainer.getLayoutParams()).topMargin = barMargin;
+        rlContainer.requestLayout();
+    }
+
     /**
      * Sets the Gravity of the Alert
      *

@@ -219,6 +219,30 @@ public final class Alerter {
         return this;
     }
 
+    public Alerter setBarHeight(final int barHeight) {
+        if (getAlert() != null) {
+            getAlert().setBarHeight(barHeight);
+        }
+
+        return this;
+    }
+
+    public Alerter setBarWidth(final int barWidth) {
+        if (getAlert() != null) {
+            getAlert().setBarWidth(barWidth);
+        }
+
+        return this;
+    }
+
+    public Alerter setBarMargin(final int barMargin) {
+        if (getAlert() != null) {
+            getAlert().setBarMargin(barMargin);
+        }
+
+        return this;
+    }
+
     /**
      * Sets the Alert Text
      *
@@ -365,6 +389,42 @@ public final class Alerter {
      * @param drawable The Drawable to use for the icon.
      * @return This Alerter
      */
+    public Alerter setSecondIcon(@NonNull final Drawable drawable) {
+        if (getAlert() != null) {
+            getAlert().setSecondIcon(drawable);
+        }
+
+        return this;
+    }
+
+    public Alerter setSecondIcon(@DrawableRes final int iconId) {
+        if (getAlert() != null) {
+            getAlert().setSecondIcon(iconId);
+        }
+
+        return this;
+    }
+
+    /**
+     * Set the Alert's Icon
+     *
+     * @param bitmap The Bitmap object to use for the icon.
+     * @return This Alerter
+     */
+    public Alerter setSecondIcon(@NonNull final Bitmap bitmap) {
+        if (getAlert() != null) {
+            getAlert().setSecondIcon(bitmap);
+        }
+
+        return this;
+    }
+
+    /**
+     * Set the Alert's Icon
+     *
+     * @param drawable The Drawable to use for the icon.
+     * @return This Alerter
+     */
     public Alerter setIcon(@NonNull final Drawable drawable) {
         if (getAlert() != null) {
             getAlert().setIcon(drawable);
@@ -381,6 +441,19 @@ public final class Alerter {
     public Alerter hideIcon() {
         if (getAlert() != null) {
             getAlert().getIcon().setVisibility(View.GONE);
+        }
+
+        return this;
+    }
+
+    /**
+     * Hide the Icon
+     *
+     * @return This Alerter
+     */
+    public Alerter hideSecondIcon() {
+        if (getAlert() != null) {
+            getAlert().getSecondIcon().setVisibility(View.GONE);
         }
 
         return this;
@@ -435,6 +508,13 @@ public final class Alerter {
     public Alerter showIcon(final boolean showIcon) {
         if (getAlert() != null) {
             getAlert().showIcon(showIcon);
+        }
+        return this;
+    }
+
+    public Alerter showSecondIcon(final boolean showIcon) {
+        if (getAlert() != null) {
+            getAlert().showSecondIcon(showIcon);
         }
         return this;
     }
@@ -526,6 +606,14 @@ public final class Alerter {
     public Alerter enableProgress(final boolean enable) {
         if (getAlert() != null) {
             getAlert().setEnableProgress(enable);
+        }
+
+        return this;
+    }
+
+    public Alerter showProgressBarIntermediate(final boolean enable) {
+        if (getAlert() != null) {
+            getAlert().setProgressBarIntermediate(enable);
         }
 
         return this;
